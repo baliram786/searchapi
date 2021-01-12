@@ -4,7 +4,8 @@ var cors = require('cors')
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port = 8080;
-var db = 'mongodb://localhost/UserDetail';
+// var db = 'mongodb://localhost/UserDetail';
+var db = "mongodb+srv://naveengupta:nokiaasha205@cluster0.809jw.mongodb.net/<UserDetail>?retryWrites=true&w=majority";
 
 const app = express();
 mongoose.set('useNewUrlParser', true);

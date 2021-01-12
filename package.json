@@ -16,6 +16,7 @@
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
     "mongoose": "^5.11.11",
+    "mongoose-fuzzy-searching": "^2.0.2",
     "nodemon": "^2.0.6",
     "npm": "6.14.9"
   },

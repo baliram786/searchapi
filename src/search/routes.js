@@ -47,16 +47,20 @@ routes.get('/search', async (request, response) => {
     console.log(search_word, 'search word');
     
     // search data query
-    await User.find({ $text: { $search: search_word} })
-    .exec(function(err, data) {
-        console.log(data);
-        if (err){
-            response.send({message:'No data found'})
-        }else{
-            response.send(data)
-        }
+    try {
+        await User.fuzzySearch(search_word)
+        .exec(function(err, data) {
+            console.log(data);
+            if (err){
+                response.send({message:'No data found'})
+            }else{
+                response.send(data)
+            }
 
-    })
+        })
+    } catch (e) {
+        console.error(e);
+      }
     
 })
 

@@ -2,6 +2,9 @@
 // Schema of User 
  
 var mongoose = require('mongoose');
+const mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
+
+
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
@@ -11,8 +14,9 @@ var UserSchema = new Schema({
     address: String,
     pincode: String
 });
-UserSchema.index({"$**": "text" });
 
+UserSchema.index({"$**": "text" });
+UserSchema.plugin(mongoose_fuzzy_searching, { fields: ['id', 'name', 'item', 'address','pincode'] });
 module.exports = mongoose.model('User', UserSchema);
 
 
